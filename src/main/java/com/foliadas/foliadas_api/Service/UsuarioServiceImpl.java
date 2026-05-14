@@ -61,7 +61,7 @@ public class UsuarioServiceImpl implements UsuarioService {
             u.setEmail(usuarioDTO.getEmail());
 
             String passwordEncriptada = passwordEncoder.encode(usuarioDTO.getPassword());
-            u.setContrasinal(passwordEncriptada);
+            u.setPassword(passwordEncriptada);
             Usuario saved = usuarioRepository.save(u);
             return toDTO(saved);
         }
@@ -90,7 +90,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         if (usuario==null){
             return null;
         }
-        boolean coincide= passwordEncoder.matches(password, usuario.getContrasinal());
+        boolean coincide= passwordEncoder.matches(password, usuario.getPassword());
         if (coincide){
             return usuario;
         }else{

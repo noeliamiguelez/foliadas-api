@@ -21,10 +21,8 @@ public class Usuario {
     private String email;
 
     @Column(name = "password", nullable = false, length = 255)
-    private String contrasinal;
+    private String password;
 
-    @Column(name = "fecha_rexistro")
-    private LocalDateTime fecha_rexistro;
 
     @ManyToMany
     @JoinTable(
@@ -36,12 +34,11 @@ public class Usuario {
 
     public Usuario() {}
 
-    public Usuario(int id, String nome, String email, String contrasinal, LocalDateTime fecha_rexistro, Set<Foliada> favoritas) {
+    public Usuario(int id, String nome, String email, String password, Set<Foliada> favoritas) {
         this.id = id;
         this.nome = nome;
         this.email = email;
-        this.contrasinal = contrasinal;
-        this.fecha_rexistro = fecha_rexistro;
+        this.password = password;
         this.favoritas = favoritas;
     }
 
@@ -77,19 +74,11 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getContrasinal() {
-        return contrasinal;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasinal(String contrasinal) {
-        this.contrasinal = contrasinal;
-    }
-
-    public LocalDateTime getFecha_rexistro() {
-        return fecha_rexistro;
-    }
-
-    public void setFecha_rexistro(LocalDateTime fecha_rexistro) {
-        this.fecha_rexistro = fecha_rexistro;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
