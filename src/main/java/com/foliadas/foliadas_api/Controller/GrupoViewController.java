@@ -16,7 +16,7 @@ public class GrupoViewController {
 
     @GetMapping("/nuevo")
     public String nuevoGrupo(Model model){
-        model.addAttribute("grupos", new GrupoDTO());
+        model.addAttribute("grupo", new GrupoDTO());
         return "grupos-form.html";
     }
 
